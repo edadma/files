@@ -52,7 +52,17 @@ import scala.language.postfixOps
 
       val file = readFile(s"$path/$line")
 
+      buf ++=
+        s"""
+           |
+           |//// start of file \"$line\"
+           |
+           |""".trim.stripMargin
       buf ++= file
+      buf ++=
+        s"""
+           |//// end of file \"$line\"
+           |""".trim.stripMargin
       if !file.endsWith("\n") then buf += '\n'
   end for
 

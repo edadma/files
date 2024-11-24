@@ -1014,19 +1014,6 @@ $c_Lio_github_edadma_cross\uff3fplatform_package$package$.prototype.readableFile
     }
   }
 });
-$c_Lio_github_edadma_cross\uff3fplatform_package$package$.prototype.writableFile__T__Z = (function(file) {
-  try {
-    $m_Lio_github_edadma_cross\uff3fplatform_package$package$().Lio_github_edadma_cross\uff3fplatform_package$package$__f_fs.accessSync(file, $m_Lio_github_edadma_cross\uff3fplatform_package$package$().Lio_github_edadma_cross\uff3fplatform_package$package$__f_fs.constants.W_OK);
-    return true;
-  } catch (e) {
-    var e$2 = ((e instanceof $c_jl_Throwable) ? e : new $c_sjs_js_JavaScriptException(e));
-    if ((e$2 instanceof $c_jl_Exception)) {
-      return false;
-    } else {
-      throw e;
-    }
-  }
-});
 $c_Lio_github_edadma_cross\uff3fplatform_package$package$.prototype.processExit__I__E = (function(code) {
   $m_Lio_github_edadma_cross\uff3fplatform_package$package$().Lio_github_edadma_cross\uff3fplatform_package$package$__f_process.exit(code);
   throw $ct_jl_RuntimeException__T__(new $c_jl_RuntimeException(), "Unreachable code after process.exit");
@@ -1051,16 +1038,13 @@ function $h_Lio_github_edadma_files_Main$package$() {
 }
 $h_Lio_github_edadma_files_Main$package$.prototype = $c_Lio_github_edadma_files_Main$package$.prototype;
 $c_Lio_github_edadma_files_Main$package$.prototype.run__sci_Seq__V = (function(args) {
-  var this$2 = $m_s_Console$();
-  var this$3 = $n(this$2.out__Ljava_io_PrintStream());
-  this$3.java$lang$JSConsoleBasedPrintStream$$printString__T__V("Hello world - js\n");
   matchResult1: {
     var \u03b41$___1;
     var \u03b41$___2;
     var x1 = $m_Lio_github_edadma_cross\uff3fplatform_package$package$().processArgs__sci_Seq__sci_IndexedSeq(args);
     if ((x1 !== null)) {
-      var this$6 = $n(x1);
-      var x = this$6.length__I();
+      var this$3 = $n(x1);
+      var x = this$3.length__I();
       if ((((x === 2) ? 0 : ((x < 2) ? (-1) : 1)) === 0)) {
         var x3 = $as_T($n(x1).apply__I__O(0));
         var x4 = $as_T($n(x1).apply__I__O(1));
@@ -1078,54 +1062,54 @@ $c_Lio_github_edadma_files_Main$package$.prototype.run__sci_Seq__V = (function(a
     $m_Lio_github_edadma_cross\uff3fplatform_package$package$().processExit__I__E(1);
   }
   var x$1 = (("reading '" + filesPath$2) + "' ...");
-  var this$12 = $m_s_Console$();
-  var this$13 = $n(this$12.out__Ljava_io_PrintStream());
-  this$13.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x$1 + "\n"));
+  var this$9 = $m_s_Console$();
+  var this$10 = $n(this$9.out__Ljava_io_PrintStream());
+  this$10.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x$1 + "\n"));
   var files = $m_Lio_github_edadma_cross\uff3fplatform_package$package$().readFile__T__T(filesPath$2);
   var elem = null;
   elem = null;
   var buf = $ct_scm_StringBuilder__(new $c_scm_StringBuilder());
-  var this$18 = new $c_sc_StringOps$$anon$1(files, true);
-  while ((this$18.sc_StringOps$$anon$1__f_scala$collection$StringOps$$anon$$index < this$18.sc_StringOps$$anon$1__f_scala$collection$StringOps$$anon$$len)) {
-    var arg1 = this$18.next__T();
+  var this$15 = new $c_sc_StringOps$$anon$1(files, true);
+  while ((this$15.sc_StringOps$$anon$1__f_scala$collection$StringOps$$anon$$index < this$15.sc_StringOps$$anon$1__f_scala$collection$StringOps$$anon$$len)) {
+    var arg1 = this$15.next__T();
     var line = $f_T__trim__T($n(arg1));
-    var this$19 = $n(line);
-    if ((!(this$19 === ""))) {
-      var this$20 = $n(line);
-      if ($uZ(this$20.startsWith(";"))) {
+    var this$16 = $n(line);
+    if ((!(this$16 === ""))) {
+      var this$17 = $n(line);
+      if ($uZ(this$17.startsWith(";"))) {
         var comment = $f_T__trim__T($n($m_sc_StringOps$().drop$extension__T__I__T(line, 1)));
         var x$2 = (((("  " + (($as_T(elem) === null) ? "" : "  ")) + "comment \"") + comment) + "\"");
-        var this$23 = $m_s_Console$();
-        var this$24 = $n(this$23.out__Ljava_io_PrintStream());
-        this$24.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x$2 + "\n"));
+        var this$20 = $m_s_Console$();
+        var this$21 = $n(this$20.out__Ljava_io_PrintStream());
+        this$21.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x$2 + "\n"));
         var x$3 = $f_T__trim__T((("\n           |\n           |//\n           |// " + comment) + "\n           |//\n           |\n           |"));
         var s = $m_sc_StringOps$().stripMargin$extension__T__C__T(x$3, 124);
         buf.addAll__T__scm_StringBuilder(s);
       } else {
-        var this$27 = $n(line);
-        if ($uZ(this$27.startsWith("/"))) {
+        var this$24 = $n(line);
+        if ($uZ(this$24.startsWith("/"))) {
           var $x_2 = true;
         } else {
-          var this$28 = $n(line);
-          var $x_2 = $uZ(this$28.startsWith("./"));
+          var this$25 = $n(line);
+          var $x_2 = $uZ(this$25.startsWith("./"));
         }
         if ($x_2) {
           var $x_1 = true;
         } else {
-          var this$29 = $n(line);
-          var $x_1 = $uZ(this$29.startsWith("../"));
+          var this$26 = $n(line);
+          var $x_1 = $uZ(this$26.startsWith("../"));
         }
         if ($x_1) {
-          var this$30 = $n(line);
-          if ($uZ(this$30.endsWith("/"))) {
+          var this$27 = $n(line);
+          if ($uZ(this$27.endsWith("/"))) {
             var newPath = $m_sc_StringOps$().dropRight$extension__T__I__T(line, 1);
           } else {
             var newPath = line;
           }
           var x$4 = ("  path: " + newPath);
-          var this$33 = $m_s_Console$();
-          var this$34 = $n(this$33.out__Ljava_io_PrintStream());
-          this$34.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x$4 + "\n"));
+          var this$30 = $m_s_Console$();
+          var this$31 = $n(this$30.out__Ljava_io_PrintStream());
+          this$31.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x$4 + "\n"));
           elem = line;
         } else {
           if (($as_T(elem) === null)) {
@@ -1133,9 +1117,9 @@ $c_Lio_github_edadma_files_Main$package$.prototype.run__sci_Seq__V = (function(a
             $m_Lio_github_edadma_cross\uff3fplatform_package$package$().processExit__I__E(1);
           }
           var x$5 = (("    including '" + line) + "'");
-          var this$36 = $m_s_Console$();
-          var this$37 = $n(this$36.out__Ljava_io_PrintStream());
-          this$37.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x$5 + "\n"));
+          var this$33 = $m_s_Console$();
+          var this$34 = $n(this$33.out__Ljava_io_PrintStream());
+          this$34.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x$5 + "\n"));
           var file = $m_Lio_github_edadma_cross\uff3fplatform_package$package$().readFile__T__T((($as_T(elem) + "/") + line));
           var x$6 = $f_T__trim__T((("\n           |\n           |//// start of file \"" + line) + "\"\n           |\n           |"));
           var s$1 = $m_sc_StringOps$().stripMargin$extension__T__C__T(x$6, 124);
@@ -1144,22 +1128,18 @@ $c_Lio_github_edadma_files_Main$package$.prototype.run__sci_Seq__V = (function(a
           var x$7 = $f_T__trim__T((("\n           |//// end of file \"" + line) + "\"\n           |"));
           var s$2 = $m_sc_StringOps$().stripMargin$extension__T__C__T(x$7, 124);
           buf.addAll__T__scm_StringBuilder(s$2);
-          var this$42 = $n(file);
-          if ((!$uZ(this$42.endsWith("\n")))) {
+          var this$39 = $n(file);
+          if ((!$uZ(this$39.endsWith("\n")))) {
             buf.addOne__C__scm_StringBuilder(10);
           }
         }
       }
     }
   }
-  if ((!$m_Lio_github_edadma_cross\uff3fplatform_package$package$().writableFile__T__Z(output$2))) {
-    $n($m_s_Console$().err__Ljava_io_PrintStream()).println__T__V("'$output' is not writable");
-    $m_Lio_github_edadma_cross\uff3fplatform_package$package$().processExit__I__E(1);
-  }
   var x$8 = (("writing '" + output$2) + "' ...");
-  var this$44 = $m_s_Console$();
-  var this$45 = $n(this$44.out__Ljava_io_PrintStream());
-  this$45.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x$8 + "\n"));
+  var this$41 = $m_s_Console$();
+  var this$42 = $n(this$41.out__Ljava_io_PrintStream());
+  this$42.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x$8 + "\n"));
   $m_Lio_github_edadma_cross\uff3fplatform_package$package$().writeFile__T__T__V(output$2, $n(buf.scm_StringBuilder__f_underlying).jl_StringBuilder__f_java$lang$StringBuilder$$content);
 });
 var $d_Lio_github_edadma_files_Main$package$ = new $TypeData().initClass($c_Lio_github_edadma_files_Main$package$, "io.github.edadma.files.Main$package$", ({

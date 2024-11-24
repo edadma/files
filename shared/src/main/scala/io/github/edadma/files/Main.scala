@@ -5,8 +5,6 @@ import io.github.edadma.cross_platform.*
 import scala.language.postfixOps
 
 @main def run(args: String*): Unit =
-  println(s"Hello world - $platform")
-
   val Seq(filesPath, output) = processArgs(args)
 
   if !readableFile(filesPath) then
@@ -65,10 +63,6 @@ import scala.language.postfixOps
            |""".trim.stripMargin
       if !file.endsWith("\n") then buf += '\n'
   end for
-
-  if !writableFile(output) then
-    Console.err.println("'$output' is not writable")
-    processExit(1)
 
   println(s"writing '$output' ...")
   writeFile(output, buf.toString)

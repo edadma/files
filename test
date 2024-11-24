@@ -1,0 +1,10 @@
+; all the test files for `files`
+
+; js platform
+./js/src/main/scala/io/github/edadma/files
+platform.scala
+
+; project
+/home/ed/dev/files/project
+build.properties
+plugins.sbt

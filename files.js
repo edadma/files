@@ -1137,9 +1137,15 @@ $c_Lio_github_edadma_files_Main$package$.prototype.run__sci_Seq__V = (function(a
           var this$37 = $n(this$36.out__Ljava_io_PrintStream());
           this$37.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x$5 + "\n"));
           var file = $m_Lio_github_edadma_cross\uff3fplatform_package$package$().readFile__T__T((($as_T(elem) + "/") + line));
+          var x$6 = $f_T__trim__T((("\n           |\n           |//// start of file \"" + line) + "\"\n           |\n           |"));
+          var s$1 = $m_sc_StringOps$().stripMargin$extension__T__C__T(x$6, 124);
+          buf.addAll__T__scm_StringBuilder(s$1);
           buf.addAll__T__scm_StringBuilder(file);
-          var this$38 = $n(file);
-          if ((!$uZ(this$38.endsWith("\n")))) {
+          var x$7 = $f_T__trim__T((("\n           |//// end of file \"" + line) + "\"\n           |"));
+          var s$2 = $m_sc_StringOps$().stripMargin$extension__T__C__T(x$7, 124);
+          buf.addAll__T__scm_StringBuilder(s$2);
+          var this$42 = $n(file);
+          if ((!$uZ(this$42.endsWith("\n")))) {
             buf.addOne__C__scm_StringBuilder(10);
           }
         }
@@ -1150,10 +1156,10 @@ $c_Lio_github_edadma_files_Main$package$.prototype.run__sci_Seq__V = (function(a
     $n($m_s_Console$().err__Ljava_io_PrintStream()).println__T__V("'$output' is not writable");
     $m_Lio_github_edadma_cross\uff3fplatform_package$package$().processExit__I__E(1);
   }
-  var x$6 = (("writing '" + output$2) + "' ...");
-  var this$40 = $m_s_Console$();
-  var this$41 = $n(this$40.out__Ljava_io_PrintStream());
-  this$41.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x$6 + "\n"));
+  var x$8 = (("writing '" + output$2) + "' ...");
+  var this$44 = $m_s_Console$();
+  var this$45 = $n(this$44.out__Ljava_io_PrintStream());
+  this$45.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x$8 + "\n"));
   $m_Lio_github_edadma_cross\uff3fplatform_package$package$().writeFile__T__T__V(output$2, $n(buf.scm_StringBuilder__f_underlying).jl_StringBuilder__f_java$lang$StringBuilder$$content);
 });
 var $d_Lio_github_edadma_files_Main$package$ = new $TypeData().initClass($c_Lio_github_edadma_files_Main$package$, "io.github.edadma.files.Main$package$", ({

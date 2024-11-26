@@ -20,19 +20,25 @@ import scala.language.postfixOps
   for lineRaw <- files.linesIterator do
     val line = lineRaw.trim
 
-    if line.isEmpty then {
-      //
-    } else if line.startsWith(";") then
+    if line.isEmpty then {} else if line.startsWith(";") then
       val comment = line drop 1 trim
 
       println(s"  ${if path eq null then "" else "  "}comment \"$comment\"")
       buf ++=
         s"""
            |
-           |//
-           |// $comment
-           |//
+           |###############################################################################
+           |# $comment
+           |###############################################################################
+           |""".trim.stripMargin
+    else if line.startsWith("#") then
+      val section = line drop 1 trim
+
+      println(s"  ${if path eq null then "" else "  "}section \"$section\"")
+      buf ++=
+        s"""
            |
+           |### SECTION: $section ###
            |""".trim.stripMargin
     else if line.startsWith("/") || line.startsWith("./") || line.startsWith("../") then
       val newPath =
@@ -53,13 +59,12 @@ import scala.language.postfixOps
       buf ++=
         s"""
            |
-           |//// start of file \"$line\"
-           |
+           |### FILE: $line ###
            |""".trim.stripMargin
       buf ++= file
       buf ++=
         s"""
-           |//// end of file \"$line\"
+           |### END FILE ###
            |""".trim.stripMargin
       if !file.endsWith("\n") then buf += '\n'
   end for

@@ -1,10 +1,14 @@
-; all the test files for `files`
+; file dump for the `files` project
 
-; js platform
-./js/src/main/scala/io/github/edadma/files
-platform.scala
+# code
+./shared/src/main/scala/io/github/edadma/files
+Main.scala
 
-; project
-/home/ed/dev/files/project
+# sbt project folder
+./project
 build.properties
 plugins.sbt
+
+# sbt build file
+./
+build.sbt

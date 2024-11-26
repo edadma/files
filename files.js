@@ -1082,7 +1082,7 @@ $c_Lio_github_edadma_files_Main$package$.prototype.run__sci_Seq__V = (function(a
         var this$20 = $m_s_Console$();
         var this$21 = $n(this$20.out__Ljava_io_PrintStream());
         this$21.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x$2 + "\n"));
-        var x$3 = $f_T__trim__T((("\n           |\n           |###############################################################################\n           |# " + comment) + "\n           |###############################################################################\n           |"));
+        var x$3 = $f_T__trim__T((("\n           |\n           |### " + comment) + " ###\n           |"));
         var s = $m_sc_StringOps$().stripMargin$extension__T__C__T(x$3, 124);
         buf.addAll__T__scm_StringBuilder(s);
       } else {

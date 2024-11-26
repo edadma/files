@@ -27,9 +27,7 @@ import scala.language.postfixOps
       buf ++=
         s"""
            |
-           |###############################################################################
-           |# $comment
-           |###############################################################################
+           |### $comment ###
            |""".trim.stripMargin
     else if line.startsWith("#") then
       val section = line drop 1 trim

@@ -27,7 +27,7 @@ import scala.language.postfixOps
       buf ++=
         s"""
            |
-           |### $comment ###
+           |<<<< $comment >>>>
            |""".trim.stripMargin
     else if line.startsWith("#") then
       val section = line drop 1 trim
@@ -36,7 +36,7 @@ import scala.language.postfixOps
       buf ++=
         s"""
            |
-           |### SECTION: $section ###
+           |<<<< SECTION: $section >>>>
            |""".trim.stripMargin
     else if line.startsWith("/") || line.startsWith("./") || line.startsWith("../") then
       val newPath =
@@ -57,12 +57,12 @@ import scala.language.postfixOps
       buf ++=
         s"""
            |
-           |### FILE: $line ###
+           |<<<< FILE: $line >>>>
            |""".trim.stripMargin
       buf ++= file
       buf ++=
         s"""
-           |### END FILE ###
+           |<<<< END FILE >>>>
            |""".trim.stripMargin
       if !file.endsWith("\n") then buf += '\n'
   end for

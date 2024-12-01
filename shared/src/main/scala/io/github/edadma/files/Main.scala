@@ -13,9 +13,9 @@ import scala.language.postfixOps
 
   println(s"reading '$filesPath' ...")
 
-  val files        = readFile(filesPath)
-  var path: String = null
-  val buf          = new StringBuilder
+  val files          = readFile(filesPath)
+  var folder: String = null
+  val buf            = new StringBuilder
 
   for lineRaw <- files.linesIterator do
     val line = lineRaw.trim
@@ -23,36 +23,41 @@ import scala.language.postfixOps
     if line.isEmpty then {} else if line.startsWith(";") then
       val comment = line drop 1 trim
 
-      println(s"  ${if path eq null then "" else "  "}comment \"$comment\"")
+      println(s"  ${if folder eq null then "" else "  "}comment \"$comment\"")
       buf ++=
         s"""
            |
-           |<<<< $comment >>>>
+           |<<<< COMMENT: $comment >>>>
            |""".trim.stripMargin
     else if line.startsWith("#") then
       val section = line drop 1 trim
 
-      println(s"  ${if path eq null then "" else "  "}section \"$section\"")
+      println(s"  ${if folder eq null then "" else "  "}section \"$section\"")
       buf ++=
         s"""
            |
            |<<<< SECTION: $section >>>>
            |""".trim.stripMargin
     else if line.startsWith("/") || line.startsWith("./") || line.startsWith("../") then
-      val newPath =
+      val newFolder =
         if line.endsWith("/") then line dropRight 1
         else line
 
-      println(s"  path: $newPath")
-      path = line
+      println(s"  path: $newFolder")
+      folder = line
+      buf ++=
+        s"""
+           |
+           |<<<< FOLDER: $folder >>>>
+           |""".trim.stripMargin
     else
-      if path eq null then
+      if folder eq null then
         Console.err.println(s"can't include '$line' because a path hasn't been set")
         processExit(1)
 
       println(s"    including '$line'")
 
-      val file = readFile(s"$path/$line")
+      val file = readFile(s"$folder/$line")
 
       buf ++=
         s"""

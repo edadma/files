@@ -1082,7 +1082,7 @@ $c_Lio_github_edadma_files_Main$package$.prototype.run__sci_Seq__V = (function(a
         var this$20 = $m_s_Console$();
         var this$21 = $n(this$20.out__Ljava_io_PrintStream());
         this$21.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x$2 + "\n"));
-        var x$3 = $f_T__trim__T((("\n           |\n           |<<<< " + comment) + " >>>>\n           |"));
+        var x$3 = $f_T__trim__T((("\n           |\n           |<<<< COMMENT: " + comment) + " >>>>\n           |"));
         var s = $m_sc_StringOps$().stripMargin$extension__T__C__T(x$3, 124);
         buf.addAll__T__scm_StringBuilder(s);
       } else {
@@ -1113,34 +1113,37 @@ $c_Lio_github_edadma_files_Main$package$.prototype.run__sci_Seq__V = (function(a
           if ($x_1) {
             var this$34 = $n(line);
             if ($uZ(this$34.endsWith("/"))) {
-              var newPath = $m_sc_StringOps$().dropRight$extension__T__I__T(line, 1);
+              var newFolder = $m_sc_StringOps$().dropRight$extension__T__I__T(line, 1);
             } else {
-              var newPath = line;
+              var newFolder = line;
             }
-            var x$6 = ("  path: " + newPath);
+            var x$6 = ("  path: " + newFolder);
             var this$37 = $m_s_Console$();
             var this$38 = $n(this$37.out__Ljava_io_PrintStream());
             this$38.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x$6 + "\n"));
             elem = line;
+            var x$7 = $f_T__trim__T((("\n           |\n           |<<<< FOLDER: " + $as_T(elem)) + " >>>>\n           |"));
+            var s$2 = $m_sc_StringOps$().stripMargin$extension__T__C__T(x$7, 124);
+            buf.addAll__T__scm_StringBuilder(s$2);
           } else {
             if (($as_T(elem) === null)) {
               $n($m_s_Console$().err__Ljava_io_PrintStream()).println__T__V((("can't include '" + line) + "' because a path hasn't been set"));
               $m_Lio_github_edadma_cross\uff3fplatform_package$package$().processExit__I__E(1);
             }
-            var x$7 = (("    including '" + line) + "'");
-            var this$40 = $m_s_Console$();
-            var this$41 = $n(this$40.out__Ljava_io_PrintStream());
-            this$41.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x$7 + "\n"));
+            var x$8 = (("    including '" + line) + "'");
+            var this$42 = $m_s_Console$();
+            var this$43 = $n(this$42.out__Ljava_io_PrintStream());
+            this$43.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x$8 + "\n"));
             var file = $m_Lio_github_edadma_cross\uff3fplatform_package$package$().readFile__T__T((($as_T(elem) + "/") + line));
-            var x$8 = $f_T__trim__T((("\n           |\n           |<<<< FILE: " + line) + " >>>>\n           |"));
-            var s$2 = $m_sc_StringOps$().stripMargin$extension__T__C__T(x$8, 124);
-            buf.addAll__T__scm_StringBuilder(s$2);
-            buf.addAll__T__scm_StringBuilder(file);
-            var x$9 = $f_T__trim__T("\n           |<<<< END FILE >>>>\n           |");
+            var x$9 = $f_T__trim__T((("\n           |\n           |<<<< FILE: " + line) + " >>>>\n           |"));
             var s$3 = $m_sc_StringOps$().stripMargin$extension__T__C__T(x$9, 124);
             buf.addAll__T__scm_StringBuilder(s$3);
-            var this$46 = $n(file);
-            if ((!$uZ(this$46.endsWith("\n")))) {
+            buf.addAll__T__scm_StringBuilder(file);
+            var x$10 = $f_T__trim__T("\n           |<<<< END FILE >>>>\n           |");
+            var s$4 = $m_sc_StringOps$().stripMargin$extension__T__C__T(x$10, 124);
+            buf.addAll__T__scm_StringBuilder(s$4);
+            var this$48 = $n(file);
+            if ((!$uZ(this$48.endsWith("\n")))) {
               buf.addOne__C__scm_StringBuilder(10);
             }
           }
@@ -1148,10 +1151,10 @@ $c_Lio_github_edadma_files_Main$package$.prototype.run__sci_Seq__V = (function(a
       }
     }
   }
-  var x$10 = (("writing '" + output$2) + "' ...");
-  var this$48 = $m_s_Console$();
-  var this$49 = $n(this$48.out__Ljava_io_PrintStream());
-  this$49.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x$10 + "\n"));
+  var x$11 = (("writing '" + output$2) + "' ...");
+  var this$50 = $m_s_Console$();
+  var this$51 = $n(this$50.out__Ljava_io_PrintStream());
+  this$51.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x$11 + "\n"));
   $m_Lio_github_edadma_cross\uff3fplatform_package$package$().writeFile__T__T__V(output$2, $n(buf.scm_StringBuilder__f_underlying).jl_StringBuilder__f_java$lang$StringBuilder$$content);
 });
 var $d_Lio_github_edadma_files_Main$package$ = new $TypeData().initClass($c_Lio_github_edadma_files_Main$package$, "io.github.edadma.files.Main$package$", ({

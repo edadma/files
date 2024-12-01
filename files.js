@@ -1082,7 +1082,7 @@ $c_Lio_github_edadma_files_Main$package$.prototype.run__sci_Seq__V = (function(a
         var this$20 = $m_s_Console$();
         var this$21 = $n(this$20.out__Ljava_io_PrintStream());
         this$21.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x$2 + "\n"));
-        var x$3 = $f_T__trim__T((("\n           |\n           |### " + comment) + " ###\n           |"));
+        var x$3 = $f_T__trim__T((("\n           |\n           |<<<< " + comment) + " >>>>\n           |"));
         var s = $m_sc_StringOps$().stripMargin$extension__T__C__T(x$3, 124);
         buf.addAll__T__scm_StringBuilder(s);
       } else {
@@ -1093,7 +1093,7 @@ $c_Lio_github_edadma_files_Main$package$.prototype.run__sci_Seq__V = (function(a
           var this$27 = $m_s_Console$();
           var this$28 = $n(this$27.out__Ljava_io_PrintStream());
           this$28.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x$4 + "\n"));
-          var x$5 = $f_T__trim__T((("\n           |\n           |### SECTION: " + section) + " ###\n           |"));
+          var x$5 = $f_T__trim__T((("\n           |\n           |<<<< SECTION: " + section) + " >>>>\n           |"));
           var s$1 = $m_sc_StringOps$().stripMargin$extension__T__C__T(x$5, 124);
           buf.addAll__T__scm_StringBuilder(s$1);
         } else {
@@ -1132,11 +1132,11 @@ $c_Lio_github_edadma_files_Main$package$.prototype.run__sci_Seq__V = (function(a
             var this$41 = $n(this$40.out__Ljava_io_PrintStream());
             this$41.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x$7 + "\n"));
             var file = $m_Lio_github_edadma_cross\uff3fplatform_package$package$().readFile__T__T((($as_T(elem) + "/") + line));
-            var x$8 = $f_T__trim__T((("\n           |\n           |### FILE: " + line) + " ###\n           |"));
+            var x$8 = $f_T__trim__T((("\n           |\n           |<<<< FILE: " + line) + " >>>>\n           |"));
             var s$2 = $m_sc_StringOps$().stripMargin$extension__T__C__T(x$8, 124);
             buf.addAll__T__scm_StringBuilder(s$2);
             buf.addAll__T__scm_StringBuilder(file);
-            var x$9 = $f_T__trim__T("\n           |### END FILE ###\n           |");
+            var x$9 = $f_T__trim__T("\n           |<<<< END FILE >>>>\n           |");
             var s$3 = $m_sc_StringOps$().stripMargin$extension__T__C__T(x$9, 124);
             buf.addAll__T__scm_StringBuilder(s$3);
             var this$46 = $n(file);

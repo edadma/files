@@ -33,7 +33,7 @@ import scala.language.postfixOps
       buf ++=
         s"""
            |
-           |##### COMMENT: $comment #####
+           |@@@@ COMMENT: $comment @@@@
            |""".trim.stripMargin
     else if line.startsWith("#") then
       val section = line drop 1 trim
@@ -42,7 +42,7 @@ import scala.language.postfixOps
       buf ++=
         s"""
            |
-           |##### SECTION: $section #####
+           |@@@@ SECTION: $section @@@@
            |""".trim.stripMargin
     else if line.startsWith("/") || line.startsWith("./") || line.startsWith("../") then
       val newFolder =
@@ -54,7 +54,7 @@ import scala.language.postfixOps
       buf ++=
         s"""
            |
-           |##### FOLDER: $folder #####
+           |@@@@ FOLDER: $folder @@@@
            |""".trim.stripMargin
     else
       if folder eq null then
@@ -68,7 +68,7 @@ import scala.language.postfixOps
       buf ++=
         s"""
            |
-           |##### FILE: $line #####
+           |@@@@ FILE: $line @@@@
            |""".trim.stripMargin
       buf ++= file
 
@@ -76,7 +76,7 @@ import scala.language.postfixOps
 
       buf ++=
         s"""
-           |##### END FILE #####
+           |@@@@ END FILE @@@@
            |""".trim.stripMargin
       if !file.endsWith("\n") then buf += '\n'
   end for

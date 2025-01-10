@@ -5,7 +5,13 @@ import io.github.edadma.cross_platform.*
 import scala.language.postfixOps
 
 @main def run(args: String*): Unit =
-  val Seq(filesPath, output) = processArgs(args)
+  val pargs = processArgs(args)
+
+  if pargs.length < 2 then
+    Console.err.println("Usage: node files <input> <output>")
+    processExit(1)
+
+  val Seq(filesPath, output) = pargs
 
   if !readableFile(filesPath) then
     Console.err.println(s"'$filesPath' not readable")

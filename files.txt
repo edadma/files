@@ -1,4 +1,4 @@
-; `files` sources
+; `files` codebase
 
 # code
 ./shared/src/main/scala/io/github/edadma/files

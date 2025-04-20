@@ -12,3 +12,7 @@ plugins.sbt
 # sbt build file
 ./
 build.sbt
+
+# the config file for sending the codebase for this project
+./
+files.txt

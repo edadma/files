@@ -1,4 +1,4 @@
-; file dump for the `files` project
+; `files` sources
 
 # code
 ./shared/src/main/scala/io/github/edadma/files
